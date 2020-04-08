@@ -32,8 +32,12 @@ $(document).ready(function(){
   })
   $("#hold-button").click(function(event){
     event.preventDefault();
-    var totalScore = Player.turnScore
-    console.log(totalScore)
-    console.log(playerOne.totalScore);
+    var totalScoreHolder = playerOne.turnScore.reduce(function(a, b) {
+      return a + b
+    })
+    playerOne.totalScore.push(totalScoreHolder);
+    playerOne.turnScore.delete()
+    console.log(totalScoreHolder)
+    console.log(playerOne);
   })
 })
