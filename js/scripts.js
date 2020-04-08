@@ -36,8 +36,13 @@ $(document).ready(function(){
       return a + b
     })
     playerOne.totalScore.push(totalScoreHolder);
-    playerOne.turnScore.delete()
+    (playerOne.turnScore).delete()
     console.log(totalScoreHolder)
     console.log(playerOne);
   })
 })
+
+
+
+// working on line 39, clear out turn score array after pushing to total score.
+//Next step address the rolling 1 rule
