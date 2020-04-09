@@ -30,7 +30,7 @@ $(document).ready(function(){
     playerOne.turnScore.push(rollScore);
     console.log(rollScore);
     console.log(playerOne);
-    $('#p1-output-number').append(' ' + rollScore);
+    $('#p1-turn-score').append(' ' + rollScore);
   })
 
   $("#p1-hold-button").click(function(event){
@@ -54,9 +54,9 @@ $(document).ready(function(){
     playerTwo.turnScore.push(rollScore);
     console.log(rollScore);
     console.log(playerTwo);
-    $('#p2-output-number').append(' ' + rollScore);
+    $('#p2-turn-score').append(' ' + rollScore);
   })
-  
+
   $("#p2-hold-button").click(function(event){
     event.preventDefault();
     var roundScoreHolder = playerTwo.turnScore.reduce(function(a, b) {
@@ -72,7 +72,6 @@ $(document).ready(function(){
   })
 })
 
-// show/hide functions for player 'zone'
 // total score counter
 // show dice rolls for current turn
 // make a result of 0 show as one
