@@ -16,6 +16,8 @@ var rollDie = function(){
   }
 }
 
+
+
 // UI logic---------------------------------------------
 
 var playerOne = new Player;
@@ -28,15 +30,15 @@ console.log(playerTwo)
 
 $(document).ready(function(){
   // attatchContactListeners();
-  $("#roll-button").click(function(event){
+  $("#p1-roll-button").click(function(event){
     event.preventDefault();
     var rollScore = rollDie();
     playerOne.turnScore.push(rollScore);
     console.log(rollScore);
     console.log(playerOne);
-    $('#output-number').append(' ' + rollScore);
+    $('#p1-output-number').append(' ' + rollScore);
   })
-  $("#hold-button").click(function(event){
+  $("#p1-hold-button").click(function(event){
     event.preventDefault();
     var roundScoreHolder = playerOne.turnScore.reduce(function(a, b) {
       return a + b
@@ -45,8 +47,32 @@ $(document).ready(function(){
     playerOne.totalScore += roundScoreHolder
     console.log(roundScoreHolder)
     console.log(playerOne);
+    
+  })
+  
+  $("#p2-roll-button").click(function(event){
+    event.preventDefault();
+    var rollScore = rollDie();
+    playerTwo.turnScore.push(rollScore);
+    console.log(rollScore);
+    console.log(playerTwo);
+    $('#p2-output-number').append(' ' + rollScore);
+  })
+  $("#p2-hold-button").click(function(event){
+    event.preventDefault();
+    var roundScoreHolder = playerTwo.turnScore.reduce(function(a, b) {
+      return a + b
+    })
+    playerTwo.turnScore.length = 0;
+    playerTwo.totalScore += roundScoreHolder
+    console.log(roundScoreHolder)
+    console.log(playerTwo);
   })
 })
 
-// working on line 41, clear out turn score array after pushing to total score.
-//Next step address the rolling 1 rule
+// show/hide functions for player 'zone'
+// total score counter
+// show dice rolls for current turn
+// make a result of 0 show as one
+// win condition
+// style it
