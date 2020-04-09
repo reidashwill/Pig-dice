@@ -2,8 +2,9 @@ body {
   background-color: #39CCCC;
 }
 .player-icon {
-  text-align: center;
+ display: block;
   max-width: 80px;
+  
 }
 .jumbotron {
   text-align: center;
@@ -17,4 +18,13 @@ text-align: center;
 }
 .return{
   text-align: center;
+}
+/* 
+* {
+  border: solid red;
+} */
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
