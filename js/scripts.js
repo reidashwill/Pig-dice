@@ -16,21 +16,15 @@ var rollDie = function(){
   }
 }
 
-
-
 // UI logic---------------------------------------------
 
 var playerOne = new Player;
-console.log(playerOne.turnScore)
 var playerTwo = new Player;
-
-// playerTwo.assignId()
-console.log(playerOne)
-console.log(playerTwo)
 
 $(document).ready(function(){
   // attatchContactListeners();
   $("#p1-roll-button").click(function(event){
+    $(".p2-zone").hide()
     event.preventDefault();
     var rollScore = rollDie();
     playerOne.turnScore.push(rollScore);
@@ -38,6 +32,7 @@ $(document).ready(function(){
     console.log(playerOne);
     $('#p1-output-number').append(' ' + rollScore);
   })
+
   $("#p1-hold-button").click(function(event){
     event.preventDefault();
     var roundScoreHolder = playerOne.turnScore.reduce(function(a, b) {
@@ -47,17 +42,21 @@ $(document).ready(function(){
     playerOne.totalScore += roundScoreHolder
     console.log(roundScoreHolder)
     console.log(playerOne);
+    $(".p1-zone").hide()
+    $(".p2-zone").show()
     
   })
   
   $("#p2-roll-button").click(function(event){
     event.preventDefault();
+    $(".p1-zone").hide()
     var rollScore = rollDie();
     playerTwo.turnScore.push(rollScore);
     console.log(rollScore);
     console.log(playerTwo);
     $('#p2-output-number').append(' ' + rollScore);
   })
+  
   $("#p2-hold-button").click(function(event){
     event.preventDefault();
     var roundScoreHolder = playerTwo.turnScore.reduce(function(a, b) {
@@ -67,6 +66,9 @@ $(document).ready(function(){
     playerTwo.totalScore += roundScoreHolder
     console.log(roundScoreHolder)
     console.log(playerTwo);
+    $(".p2-zone").hide()
+    $(".p1-zone").show()
+    
   })
 })
 
