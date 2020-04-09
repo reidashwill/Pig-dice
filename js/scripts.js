@@ -12,10 +12,10 @@ function Player(){
 var rollDie = function(){
   if ((Math.floor(Math.random() * 6) + 1) === 1 && playerTwo.rollScore === 0) {
     $("#p1-hold-button").trigger("click")
-    return playerOne.turnScore.length = 0
+    return 0
   }else if((Math.floor(Math.random() * 6) + 1) === 1 && playerOne.rollScore === 0){
     $("#p2-hold-button").trigger("click")
-    return playerTwo.turnScore.length = 0
+    return  0
   } else {
     return Math.floor(Math.random() * 5) + 2
   }
@@ -34,7 +34,11 @@ $(document).ready(function(){
     playerOne.turnScore.push(playerOne.rollScore);
     console.log(playerOne.rollScore);
     console.log(playerOne);
+    if(playerOne.rollScore === 0){
+      $('#p1-turn-score').append(' ' + 1);
+    }else{
     $('#p1-turn-score').append(' ' + playerOne.rollScore);
+    }
   })
 
   $("#p1-hold-button").click(function(event){
@@ -42,6 +46,8 @@ $(document).ready(function(){
     var roundScoreHolder = playerOne.turnScore.reduce(function(a, b) {
       return a + b
     })
+    playerOne.rollScore = 0;
+    playerTwo.rollScore = 0;
     playerOne.turnScore.length = 0;
     playerOne.totalScore += roundScoreHolder
     console.log(roundScoreHolder)
@@ -56,9 +62,13 @@ $(document).ready(function(){
     $(".p1-zone").hide()
     playerTwo.rollScore = rollDie();
     playerTwo.turnScore.push(playerTwo.rollScore);
-    console.log(playerTwo.RollScore);
+    console.log(playerTwo.rollScore);
     console.log(playerTwo);
+    if(playerTwo.rollScore === 0){
+      $('#p2-turn-score').append(' ' + 1);
+    }else{
     $('#p2-turn-score').append(' ' + playerTwo.rollScore);
+    }
   })
 
   $("#p2-hold-button").click(function(event){
@@ -66,6 +76,8 @@ $(document).ready(function(){
     var roundScoreHolder = playerTwo.turnScore.reduce(function(a, b) {
       return a + b
     })
+    playerOne.rollScore = 0;
+    playerTwo.rollScore = 0;
     playerTwo.turnScore.length = 0;
     playerTwo.totalScore += roundScoreHolder
     console.log(roundScoreHolder)
