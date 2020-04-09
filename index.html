@@ -11,26 +11,40 @@
   </head>
   <body>
     <div class="container">
-      <h2>Play Pig Dice!</h2>
-      <div class="p1-zone">
-        <button type="button" id="p1-roll-button" class="btn-primary">Roll Die!</button>
-        <br>
-        <br>
-        <button type="button" id="p1-hold-button" class="btn-primary">Hold!</button>
+      <div class="jumbotron">
+        <h1>Play Pig Dice!</h2>
+        <h3>Wanna play a game?!</h3>
+        <img src="https://media3.giphy.com/media/9KQ2T38nNpz2g/giphy.webp?cid=ecf05e47870b89c2b67258dd5d71128abc9785ccce78f07a&rid=giphy.webp">
       </div>
-      <div id="p1-turn-score"></div>
-      <div>Player 1 score is: <span id="p1-total-score"></span></div>
-      <br>
-      <br>
-      <div class="p2-zone">
-        <button type="button" id="p2-roll-button" class="btn-primary">Roll Die!</button>
-        <br>
-        <br>
-        <button type="button" id="p2-hold-button" class="btn-primary">Hold!</button>
-      </div>
-      <div id="p2-turn-score"></div>
-      <div>Player 2 score is: <span id="p2-total-score"></span></div>      
-    </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 return">
+          <div id="p1-turn-score"></div>
+            <div>Player 1 score is: <span id="p1-total-score"></span></div>
+          <div class="p1-zone">
+            <button type="button" id="p1-roll-button" class="btn-primary">Roll Die!</button>
+            <br>
+            <br>
+            <button type="button" id="p1-hold-button" class="btn-primary">Hold!</button>
+            <img class="player-icon" src="/img/player1.png">
+          </div>
+          
+        </div>
+        <div class="col-md-4 return">
+          <div id="p2-turn-score"></div>
+          <div>Player 2 score is: <span id="p2-total-score"></span></div>
+          <div class="p2-zone">
+            <button type="button" id="p2-roll-button" class="btn-primary">Roll Die!</button>
+            <br>
+            <br>
+            <button type="button" id="p2-hold-button" class="btn-primary">Hold!</button>
+            <img class= "player-icon" src="/img/player2.png">
+          </div>
+          
+           
+        </div>
+        <div class="col-md-2"></div>
+      </div>  
     <div id="winners-circle"></div>
   </body>
 </html>
