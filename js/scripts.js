@@ -4,18 +4,22 @@ function Player(){
   this.turnScore = [];
   this.totalScore = 0;
   this.currentId = 0;
+  this.rollScore = 0;
 }
 
 // Business logic------------------------------
 
 var rollDie = function(){
-  if((Math.floor(Math.random() * 6) + 1) === 1){ 
-   return playerOne.turnScore.length = 0 && $('#hold-button').trigger('click');
-  }else{
-    return Math.floor(Math.random() * 5) + 2;
+  if ((Math.floor(Math.random() * 6) + 1) === 1 && playerTwo.rollScore === 0) {
+    $("#p1-hold-button").trigger("click")
+    return playerOne.turnScore.length = 0
+  }else if((Math.floor(Math.random() * 6) + 1) === 1 && playerOne.rollScore === 0){
+    $("#p2-hold-button").trigger("click")
+    return playerTwo.turnScore.length = 0
+  } else {
+    return Math.floor(Math.random() * 5) + 2
   }
 }
-
 // UI logic---------------------------------------------
 
 var playerOne = new Player;
@@ -26,11 +30,11 @@ $(document).ready(function(){
   $("#p1-roll-button").click(function(event){
     $(".p2-zone").hide()
     event.preventDefault();
-    var rollScore = rollDie();
-    playerOne.turnScore.push(rollScore);
-    console.log(rollScore);
+    playerOne.rollScore = rollDie();
+    playerOne.turnScore.push(playerOne.rollScore);
+    console.log(playerOne.rollScore);
     console.log(playerOne);
-    $('#p1-turn-score').append(' ' + rollScore);
+    $('#p1-turn-score').append(' ' + playerOne.rollScore);
   })
 
   $("#p1-hold-button").click(function(event){
@@ -50,11 +54,11 @@ $(document).ready(function(){
   $("#p2-roll-button").click(function(event){
     event.preventDefault();
     $(".p1-zone").hide()
-    var rollScore = rollDie();
-    playerTwo.turnScore.push(rollScore);
-    console.log(rollScore);
+    playerTwo.rollScore = rollDie();
+    playerTwo.turnScore.push(playerTwo.rollScore);
+    console.log(playerTwo.RollScore);
     console.log(playerTwo);
-    $('#p2-turn-score').append(' ' + rollScore);
+    $('#p2-turn-score').append(' ' + playerTwo.rollScore);
   })
 
   $("#p2-hold-button").click(function(event){
